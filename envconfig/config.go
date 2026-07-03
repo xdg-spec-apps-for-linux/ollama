@@ -120,7 +120,7 @@ func Models() string {
 		panic(err)
 	}
 
-	return filepath.Join(home, ".ollama", "models")
+	return filepath.Join(home, ".local", "share", "ollama", "models")
 }
 
 // KeepAlive returns the duration that models stay loaded in memory. KeepAlive can be configured via the OLLAMA_KEEP_ALIVE environment variable.
@@ -396,9 +396,9 @@ func loadServerConfig() {
 	serverCfgMu.RUnlock()
 
 	cfg := serverConfigData{}
-	home, err := os.UserHomeDir()
+	home, err := os.UserConfigDir()
 	if err == nil {
-		path := filepath.Join(home, ".ollama", "server.json")
+		path := filepath.Join(home, "ollama", "server.json")
 		data, err := os.ReadFile(path)
 		if err != nil {
 			if !errors.Is(err, os.ErrNotExist) {

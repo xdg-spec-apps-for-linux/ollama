@@ -111,7 +111,7 @@ func serverConfigPath() (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("resolve home directory: %w", err)
 	}
-	return filepath.Join(home, ".ollama", serverConfigFilename), nil
+	return filepath.Join(home, ".local", "share", "ollama", serverConfigFilename), nil
 }
 
 func cloudStatusSource(envDisabled bool, configDisabled bool) string {

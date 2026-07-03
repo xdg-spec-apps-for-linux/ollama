@@ -78,7 +78,7 @@ var defaultCache = sync.OnceValues(func() (*blob.DiskCache, error) {
 	if dir == "" {
 		home, _ := os.UserHomeDir()
 		home = cmp.Or(home, ".")
-		dir = filepath.Join(home, ".ollama", "models")
+		dir = filepath.Join(home, ".local", "share", "ollama", "models")
 	}
 	return blob.Open(dir)
 })

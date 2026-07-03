@@ -190,7 +190,7 @@ var defaultDBPath = func() string {
 	case "darwin":
 		return filepath.Join(os.Getenv("HOME"), "Library", "Application Support", "Ollama", "db.sqlite")
 	default:
-		return filepath.Join(os.Getenv("HOME"), ".ollama", "db.sqlite")
+		return filepath.Join(os.Getenv("XDG_DATA_HOME"), "ollama", "db.sqlite")
 	}
 }()
 
@@ -202,7 +202,7 @@ var legacyConfigPath = func() string {
 	case "darwin":
 		return filepath.Join(os.Getenv("HOME"), "Library", "Application Support", "Ollama", "config.json")
 	default:
-		return filepath.Join(os.Getenv("HOME"), ".ollama", "config.json")
+		return filepath.Join(os.Getenv("XDG_DATA_HOME"), ".ollama", "config.json")
 	}
 }()
 
@@ -387,7 +387,7 @@ func (s *Store) Settings() (Settings, error) {
 		} else {
 			home, err := os.UserHomeDir()
 			if err == nil {
-				settings.Models = filepath.Join(home, ".ollama", "models")
+				settings.Models = filepath.Join(home, ".local", "share", ".ollama", "models")
 			}
 		}
 	}

@@ -308,7 +308,7 @@ func modelRecommendationsSnapshotPath() (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return filepath.Join(home, ".ollama", "cache", "model-recommendations.json"), nil
+	return filepath.Join(home, ".local", "share", "ollama", "cache", "model-recommendations.json"), nil
 }
 
 func validateModelRecommendations(recs []api.ModelRecommendation) ([]api.ModelRecommendation, error) {

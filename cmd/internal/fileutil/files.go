@@ -46,7 +46,7 @@ func copyFile(src, dst string) error {
 // BackupDir returns the shared backup root used before overwriting files.
 func BackupDir() string {
 	if home, err := os.UserHomeDir(); err == nil && home != "" {
-		return filepath.Join(home, ".ollama", "backup")
+		return filepath.Join(home, ".local", "share", "ollama", "backup")
 	}
 	return filepath.Join(os.TempDir(), "ollama-backup")
 }

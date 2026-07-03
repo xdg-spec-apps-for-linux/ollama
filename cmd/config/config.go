@@ -29,11 +29,11 @@ type config struct {
 }
 
 func configPath() (string, error) {
-	home, err := os.UserHomeDir()
+	home, err := os.UserConfigDir()
 	if err != nil {
 		return "", err
 	}
-	return filepath.Join(home, ".ollama", "config.json"), nil
+	return filepath.Join(home, "ollama", "config.json"), nil
 }
 
 func legacyConfigPath() (string, error) {
