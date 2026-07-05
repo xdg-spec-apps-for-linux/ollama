@@ -2,9 +2,9 @@
 
 echo "check outin"
 git checkout main
-"fetchin"
+echo "fetchin"
 git fetch upstream
-"mergin"
+echo "mergin"
 git merge upstream/main
-"pushin"
+echo "pushin"
 git push origin main
